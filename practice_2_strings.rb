@@ -28,6 +28,11 @@ color3 = "purple"
 puts "My three favorite colors are #{color1}, #{color2}, and #{color3}"
 
 # 6. Write a program that asks the user to enter a name. If the name is not "Santa", print "You're not Santa."
+puts "Please enter your name: "
+name = gets.chomp
+if name.downcase != "santa"
+  puts "You're not Santa"
+end
 
 # 7. Write a program that uses variables to store a book's title and author, then prints out a sentence using that information with string concatenation (the + operator).
 
