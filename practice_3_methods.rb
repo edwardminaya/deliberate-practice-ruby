@@ -63,3 +63,6 @@ if word.length > 5
 end
 
 # SOLUTIONS: https://gist.github.com/peterxjang/1539a3ad79728ba4fb68dd8d07279c29
+
+# TIMED SESSIONS -------
+# Date: Time to Complete:

@@ -19,3 +19,6 @@
 # 10. Write a while loop that prints the even numbers from 2 to 40.
 
 # SOLUTIONS: https://gist.github.com/peterxjang/c4ec0e0f8f6e123d65ada9bf3100068b
+
+# TIMED SESSIONS -------
+# Date: Time to Complete:

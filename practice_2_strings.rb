@@ -60,3 +60,6 @@ city3 = "Seattle"
 puts "My favorite cities are " + city1 + ", " + city2 + ", and " + city3
 
 # SOLUTIONS: https://gist.github.com/peterxjang/79ba5acc912a86cce2a18c2f14b1c712
+
+# TIMED SESSIONS -------
+# Date: Time to Complete:
