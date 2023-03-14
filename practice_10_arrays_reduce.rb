@@ -143,12 +143,70 @@ p array.reduce(:*)
 
 #  8. Start with an array of strings and combine them all into a single string, separated by dashes.
 #     For example, ["volleyball", "basketball", "badminton"] becomes "-volleyball-basketball-badminton-".
+array = ["volleyball", "basketball", "badminton"]
+y = "-"
+i = 0
+while i < array.length
+  y += "#{array[i]}-"
+  i += 1
+end
+p y
+
+y = "-"
+array.each do |x|
+  y += "#{x}-"
+end
+p y
+
+p array.reduce("-") { |x, y| x += "#{y}-" }
 
 #  9. Start with an array of hashes and find the hash with the shortest name (from the :name key).
 #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes {name: "book", price: 4}.
+array = [{ name: "chair", price: 100 }, { name: "pencil", price: 1 }, { name: "book", price: 4 }]
+
+shortest_word = array[0]
+
+i = 0
+while i < array.length
+  if array[i][:name].length < shortest_word[:name].length
+    shortest_word = array[i]
+  end
+  i += 1
+end
+p shortest_word
+
+shortest_word = array[0]
+array.each do |x|
+  if x[:name].length < shortest_word[:name].length
+    shortest_word = x
+  end
+end
+p shortest_word
+
+p array.reduce(array[0]) { |x, y| x[:name].length < y[:name].length ? x : y }
 
 # 10. Start with an array of numbers and compute the maximum number.
 #     For example, [5, 10, 8, 3] becomes 10.
+array = [5, 10, 8, 3]
+max = array[0]
+i = 0
+while i < array.length
+  if array[i] > max
+    max = array[i]
+  end
+  i += 1
+end
+p max
+
+max = array[0]
+array.each do |x|
+  if x > max
+    max = x
+  end
+end
+p max
+
+p array.reduce(array[0]) { |x, y| y < x ? x : y }
 
 # SOLUTIONS (using while loop): https://gist.github.com/peterxjang/376c8931a48549889eb3c9bc091e9f43
 # SOLUTIONS (using .each shortcut): https://gist.github.com/peterxjang/379c9945774f51027750c59d6e4395df
