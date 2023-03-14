@@ -82,12 +82,64 @@ p array.reduce(array[0]) { |num, n| num < n ? num : n }
 
 #  5. Start with an array of strings and compute the total length of all the strings.
 #     For example, ["volleyball", "basketball", "badminton"] becomes 29.
+array = ["volleyball", "basketball", "badminton"]
+i = 0
+sum = 0
+while i < array.length
+  sum += array[i].length
+  i += 1
+end
+p sum
+
+sum = 0
+array.each do |x|
+  sum += x.length
+end
+p sum
+
+p array.reduce(0) { |sum, n| sum += n.length }
 
 #  6. Start with an array of hashes and find the hash with the lowest price (from the :price key).
 #     For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes {name: "pencil", price: 1}.
+array = [{ name: "chair", price: 100 }, { name: "pencil", price: 1 }, { name: "book", price: 4 }]
 
+i = 0
+min = array[0]
+while i < array.length
+  if array[i][:price] < min[:price]
+    min = array[i]
+  end
+  i += 1
+end
+p min
+
+min = array[0]
+array.each do |x|
+  if x[:price] < min[:price]
+    min = x
+  end
+end
+p min
+
+p array.reduce(array[0]) { |min, n| min[:price] < n[:price] ? min : n }
 #  7. Start with an array of numbers and compute product of all the numbers.
 #     For example, [5, 10, 8, 3] becomes 1200.
+array = [5, 10, 8, 3]
+num = 1
+i = 0
+while i < array.length
+  num *= array[i]
+  i += 1
+end
+p num
+
+num = 1
+array.each do |x|
+  num *= x
+end
+p num
+
+p array.reduce(:*)
 
 #  8. Start with an array of strings and combine them all into a single string, separated by dashes.
 #     For example, ["volleyball", "basketball", "badminton"] becomes "-volleyball-basketball-badminton-".
