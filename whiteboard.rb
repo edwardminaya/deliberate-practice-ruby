@@ -169,5 +169,17 @@ end
 
 p palindrome(string)
 # Write a function to generate/print/store the first "n" prime numbers.
+n = 10
+#output: 29
+
+def n_prime_num(n)
+  array = []
+  n.times do
+    if n % n == 1 && 
+
+  end
+end
+
+p n_prime_num(n)
 
 # Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won.
