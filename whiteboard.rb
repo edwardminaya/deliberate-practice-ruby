@@ -107,23 +107,26 @@ end
 p two_smallest(array)
 
 # Write a function that takes in an array of numbers and returns a count of how many zeros are in the array.
-array = [1, 0, 2, 34, 0, 0, 4]
-# output: 3
+array = [1, 0, 0, 1, 1, 3]
+# output: 2
+
 def count_zero(array)
   count = 0
-  array.each do |num|
-    if num == 0
-      count += 1
+  index = 0
+  while index < array.length
+    if array[index] == 0
+      count = count + 1
     end
+    index += 1
   end
   return count
 end
 
 p count_zero(array)
 # Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
-array = [100, 24, 34, 50, 33]
-# output: true
-def larger_than_ten(array)
+array = [23, 48, 80, 32, 31]
+#output: true
+def greater_than_ten(array)
   array.each do |num|
     if num < 10
       return false
@@ -132,17 +135,35 @@ def larger_than_ten(array)
   return true
 end
 
-p larger_than_ten(array)
-
+p greater_than_ten(array)
 # Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
-array = ["apple", "banana", "two"]
-# output: 4
+array = ["apple", "banana", "two", "anna"]
+#output: 6
 
 def total_a_count(array)
   count = 0
-  array.each do |string|
-    string.split("").each do |letter|
-      if letter == "a"
+  index1 = 0
+  while index1 < array.length
+    index2 = 0
+    while index2 < array[index1].length
+      if array[index1][index2] == "a"
+        count += 1
+      end
+      index2 += 1
+    end
+    index1 += 1
+  end
+  return count
+end
+
+p total_a_count(array)
+
+#Refactored
+def total_a_count_refactored(array)
+  count = 0
+  array.each do |word|
+    word.split("").each do |letter| #word is a string and I used .split("") to make it an array so I can use the each do method.
+      if letter.downcase == "a"
         count += 1
       end
     end
@@ -150,36 +171,11 @@ def total_a_count(array)
   return count
 end
 
-p total_a_count(array)
+p total_a_count_refactored(array)
 
 # BONUS PROBLEMS
 # Write a function that accepts a string and returns whether it’s a palindrome.
-string = "racecar"
-# output: true
-def palindrome(string)
-  if string.length <= 1
-    return true
-  elsif string[0] != string[string.length - 1]
-    return false
-  end
-  string.slice!(0)
-  string.slice!(string.length - 1)
-  return palindrome(string)
-end
 
-p palindrome(string)
 # Write a function to generate/print/store the first "n" prime numbers.
-n = 10
-#output: 29
-
-def n_prime_num(n)
-  array = []
-  n.times do
-    if n % n == 1 && 
-
-  end
-end
-
-p n_prime_num(n)
 
 # Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won.
