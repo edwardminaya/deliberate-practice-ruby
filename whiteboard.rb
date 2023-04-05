@@ -216,3 +216,60 @@ end
 p prime_num(n)
 
 # Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won.
+
+tictactoe = [
+  ["X", "O", "O"],
+  ["O", "O", "X"],
+  ["O", "X", "O"],
+]
+
+#Brute Force
+def tictactoe_winner(tictactoe)
+  #display board
+  puts "#{tictactoe[0][0]} | #{tictactoe[0][1]} | #{tictactoe[0][2]}"
+  puts "---------"
+  puts "#{tictactoe[1][0]} | #{tictactoe[1][1]} | #{tictactoe[1][2]}"
+  puts "---------"
+  puts "#{tictactoe[2][0]} | #{tictactoe[2][1]} | #{tictactoe[2][2]}"
+
+  # Checking for winner horizontally
+  tictactoe.each do |row|
+    if row[0] == row[1] && row[0] == row[2]
+      return "Winner #{row[0]}"
+    end
+  end
+
+  # Checking for winners vertically
+  transpose = tictactoe.transpose
+  transpose.each do |row|
+    if row[0] == row[1] && row[0] == row[2]
+      return "Winner #{row[0]}"
+    end
+  end
+
+  # Checking for winner diagonally (left to right)
+  i = 0
+  array = []
+  tictactoe.each do |row|
+    array << row[i]
+    i += 1
+  end
+  if array[0] == array[1] && array[0] == array[2]
+    return "Winner #{array[0]}"
+  end
+
+  # Checking for winner diagonally (right to left)
+  i = 2
+  array = []
+  tictactoe.each do |row|
+    array << row[i]
+    i -= 1
+  end
+  if array[0] == array[1] && array[0] == array[2]
+    return "Winner #{array[0]}"
+  end
+
+  return "No Winner"
+end
+
+p tictactoe_winner(tictactoe)
