@@ -175,7 +175,44 @@ p total_a_count_refactored(array)
 
 # BONUS PROBLEMS
 # Write a function that accepts a string and returns whether it’s a palindrome.
+word = "racecar"
+
+def palindrome(word)
+  if word.length <= 1
+    return true
+  elsif word[0] != word[word.length - 1]
+    return false
+  end
+  w = word.slice!(0)
+  w = word.slice!(word.length - 1)
+  return palindrome(w)
+end
+
+p palindrome(word)
 
 # Write a function to generate/print/store the first "n" prime numbers.
+n = 5
+# output: 2,3,5,7,11
+
+# prime number: a whole number greater than 1 that cannot be EXACTLY divided by any whole number other itself and one
+def prime_num(n)
+  array = []
+  i = 2
+
+  while array.length < n
+    is_prime = true
+    (2..Math.sqrt(i)).each do |j|
+      if i % j == 0
+        is_prime = false
+        break
+      end
+    end
+    array << i if is_prime
+    i += 1
+  end
+  return array
+end
+
+p prime_num(n)
 
 # Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won.
