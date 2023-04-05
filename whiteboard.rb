@@ -47,15 +47,16 @@ end
 p reverse_array(array)
 
 # Write a function that takes in an array of words and returns the number of words that begin with the letter “a”.
-array = ["apple", "banana", "ape", "candy", "market", "animal"]
-# output: 3
-
+array = ["apple", "tiger", "animal", "banana"]
+#output: 2
 def a_count(array)
+  index = 0
   count = 0
-  array.each do |string|
-    if string[0].downcase == "a"
+  while index < array.length
+    if array[index][0] == "a"
       count += 1
     end
+    index += 1
   end
   return count
 end
@@ -63,24 +64,110 @@ end
 p a_count(array)
 
 # Write a function that takes in an array of strings and joins them together to make a single string separated by commas.
-array = ["hello", "hi", "hola"]
+array = ["hi", "hello", "hola"]
 
-def join_string(array)
-  join_string = ""
-  array.each do |string|
-    join_string += "#{string},"
+def string_comma(array)
+  string = ""
+  array.each do |word|
+    string += word + ", "
   end
-  return join_string
+  return string
 end
 
-p join_string(array)
+p string_comma(array)
+
 # Write a function that takes in an array of numbers and returns the product of all the numbers (each number multiplied by each other).
+array = [2, 2, 4]
+# output: 16
+
+def multiple_array(array)
+  product = 1
+  index = 0
+  while index < array.length
+    product = product * array[index]
+    index += 1
+  end
+  return product
+end
+
+p multiple_array(array)
 # Write a function that takes in an array of numbers and returns the two smallest numbers.
+array = [4, 2, 3, 7, 9, 8]
+#output: 2,3
+def two_smallest(array)
+  smallest = []
+  2.times do
+    value = array.each_with_index.min
+    smallest << value[0]
+    array.delete_at(value[1])
+  end
+  return smallest
+end
+
+p two_smallest(array)
+
 # Write a function that takes in an array of numbers and returns a count of how many zeros are in the array.
+array = [1, 0, 2, 34, 0, 0, 4]
+# output: 3
+def count_zero(array)
+  count = 0
+  array.each do |num|
+    if num == 0
+      count += 1
+    end
+  end
+  return count
+end
+
+p count_zero(array)
 # Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
+array = [100, 24, 34, 50, 33]
+# output: true
+def larger_than_ten(array)
+  array.each do |num|
+    if num < 10
+      return false
+    end
+  end
+  return true
+end
+
+p larger_than_ten(array)
+
 # Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
+array = ["apple", "banana", "two"]
+# output: 4
+
+def total_a_count(array)
+  count = 0
+  array.each do |string|
+    string.split("").each do |letter|
+      if letter == "a"
+        count += 1
+      end
+    end
+  end
+  return count
+end
+
+p total_a_count(array)
 
 # BONUS PROBLEMS
 # Write a function that accepts a string and returns whether it’s a palindrome.
+string = "racecar"
+# output: true
+def palindrome(string)
+  if string.length <= 1
+    return true
+  elsif string[0] != string[string.length - 1]
+    return false
+  end
+  string.slice!(0)
+  string.slice!(string.length - 1)
+  return palindrome(string)
+end
+
+p palindrome(string)
 # Write a function to generate/print/store the first "n" prime numbers.
+
 # Given a tic-tac-toe board (matrix of 3 x 3), write a function that can check to see whether X or O won.
