@@ -18,6 +18,7 @@ combos = []
 (1..items.size).each do |n|
   items.combination(n).each do |x|
     total_price = x.map { |item| item[:price] }.reduce(:+)
+    puts total_price
     if total_price == target
       combos << x.map { |item| item[:name] }
     end
