@@ -44,11 +44,6 @@ class Deck
   end
 end
 
-# @deck = Deck.new
-# pp @deck.playable_cards.length
-# @one = @deck.deal_card
-# pp @one
-
 class Hand
   attr_accessor :cards
 
@@ -56,6 +51,17 @@ class Hand
     @cards = []
   end
 end
+
+@deck = Deck.new
+pp @deck.playable_cards.length
+@one = @deck.deal_card
+@two = @deck.deal_card
+
+dealer = Hand.new.cards
+dealer << @one
+dealer << @two
+p dealer
+pp @deck.playable_cards.length
 
 require "test/unit"
 
