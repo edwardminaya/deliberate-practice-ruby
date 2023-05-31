@@ -117,5 +117,12 @@ array = [{ author: "Jeff Smith", title: "Bone" }, { author: "George Orwell", tit
 
 # 10. Given a hash, create a new hash that has the keys and values switched.
 #     For example, {"a" => 1, "b" => 2, "c" => 3} becomes {1 => "a", 2 => "b", 3 => "c"}.
+hash1 = { "a" => 1, "b" => 2, "c" => 3 }
+hash2 = {}
+
+hash1.to_a.each do |element|
+  hash2[element[1]] = element[0]
+end
+p hash2
 
 # SOLUTIONS: https://gist.github.com/peterxjang/216a7a6e8411ee5c05118e78022f2bc7
